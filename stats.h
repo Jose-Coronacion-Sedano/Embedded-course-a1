@@ -49,9 +49,10 @@ void print_array(unsigned char * ptr, unsigned int count);
  *  
  *  <This function uses pointers to reference the internal values of the array, then it creates a 
  *  copy of the array so that it can be manipulated without changing the values of the original
- *  array, after that the function is going to order the array. Once we obtain the ordered data,
- *  we evaluate whether the amount of data is  odd or even and determine the center value, the
- *  center value depends of the parity of the number of elements.>
+ *  array, after that by means of a loop it stores the highest value of the array, stores it in
+ *  another array. Once we obtain the ordered data,it evaluate whether the amount of data is  odd
+ *  or even and determine the center value, if the number of elements is odd the median is a
+ *  average of 2 values and if is even the median is a single value.>
 .*
  *
  *  @param <unsigned char * ptr> <The pointer to a data set>

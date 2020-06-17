@@ -34,40 +34,46 @@ unsigned char find_minimum(unsigned char * ptr, unsigned int count);
 void sort_array(unsigned char * ptr, unsigned int count); 
 
 void main() {
-  /*test variables are added a, b, c ,d*/ 	
-  unsigned char a;
-  unsigned char b;
-  unsigned char c;
-  unsigned char d;	
+  
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
-  c=find_mean(test,SIZE); 
- 	
-  a=find_maximum(test,SIZE);
-  b=find_minimum(test,SIZE);
   
-  d=find_median(test,SIZE);
-/*the statics are printed in order to check the code*/
-  printf(" mean: %u \n maximum: %u \n minimum: %u \n median: %u\n",c,a,b,d);
+  print_array(test,SIZE);
   
-
-  /*print_array(test,SIZE);
-  	
+  print_statistics(test,SIZE);
 	
   sort_array(test,SIZE);
 	
-  print_array(test,SIZE);*/
+  print_array(test,SIZE);
   
-
+  
 }
 
 void print_statistics(unsigned char* ptr, unsigned int count){
+        unsigned char a;
+	unsigned char b;
+	unsigned char c;
+	unsigned char d;
+	c=find_mean(ptr,count); 
+ 	a=find_maximum(ptr,count);
+  	b=find_minimum(ptr,count);
+    	d=find_median(ptr,count);
+	printf("\nThe statics are: \nMean: %u \nMedian: %u \nMaximun: %u\nMinimum: %u\n",c,d,a,b);
 			
 }
 void print_array(unsigned char * ptr, unsigned int count){
+       unsigned int i;
+       printf("\n{");	
+       for(i=0;i<count;i++){
+		if(i<(count-1)){			
+			printf("%u,", *ptr);}
+		else{printf("%u", *ptr);}
+			ptr++;
+				}
+		printf("}\n");
 
 }
 unsigned char find_median(unsigned char * ptr, unsigned int count) {
@@ -80,31 +86,36 @@ unsigned char find_median(unsigned char * ptr, unsigned int count) {
 	unsigned char test1[count];
 	unsigned char *test11=&test1[0];
 	unsigned char *ptr1=&testa[0];
+	/* the values of the arrangement are copied so as not to affect the original 
+	 *arrangement.*/	
 	for(i=0; i<count;i++){
 	*ptr1=*ptr;
 	ptr1++;
 	ptr++;	
 	}
-	ptr1-=count;
-	ptr-=count;
+	ptr1-=count;// the pointer of the array is returned to the 0 value of the array
+	ptr-=count;// the pointer of the array is returned to the 0 value of the array
 	for(i=0; i<count;i++){
 		maxtemp=0;
+		/*the maximum value among the elements of the copied arrangement is evaluated*/
 		for(j=0;j<count;j++){
 			if(*ptr1>maxtemp){
-				maxtemp=*ptr1;
-				tempptr=ptr1;
+				maxtemp=*ptr1;//the maximum value is stored
+				tempptr=ptr1;//the maximum value pointer is stored
 				
 				}
 			ptr1++;
 			}
-			*test11=maxtemp;
+
+		*test11=maxtemp;//the maximum value pointer is stored
 			
-			*tempptr=0;
-			ptr1-=count;
-			test11++;
+		*tempptr=0;//the maximum value is removed to find the next one.
+		ptr1-=count;// the pointer is returned to the 0 value of the array
+		test11++;
 			}
-		test11-=count;
-	
+		test11-=count;// the pointer is returned to the 0 value of the array
+	/* whether the number of terms of the arrangement is even or odd is evaluated 
+	*  in order to  calculate the average value*/
 	if ((count%2)==1){
 		printf(" \n %u \n",*(test11+(count/2)));
 		median=*(test11+(count/2));			
@@ -170,6 +181,50 @@ unsigned char find_minimum(unsigned char * ptr, unsigned int count){
 		return min;
 }
 void sort_array(unsigned char * ptr, unsigned int count){
-		
+	unsigned char maxtemp;
+	unsigned char i;
+	unsigned char j;
+	unsigned char *tempptr;
+	unsigned char testa[count];
+	unsigned char test1[count];
+	unsigned char *test11=&test1[0];
+	unsigned char *ptr1=&testa[0];
+	/* the values of the arrangement are copied so as not to affect the original 
+	 *arrangement.*/
+	for(i=0; i<count;i++){
+	*ptr1=*ptr;
+	ptr1++;
+	ptr++;	
+	}
+	ptr1-=count;// the pointer is returned to the 0 value of the array
+	ptr-=count;// the pointer is returned to the 0 value of the array
+	for(i=0; i<count;i++){
+		maxtemp=0;
+		/*the maximum value among the elements of the copied arrangement is evaluated*/
+		for(j=0;j<count;j++){
+			if(*ptr1>maxtemp){
+				maxtemp=*ptr1;//the maximum value is stored
+				tempptr=ptr1;//the maximum value pointer is stored
+				
+				}
+			ptr1++;
+			}
+		*test11=maxtemp;//the maximum value pointer is stored
+			
+		*tempptr=0;//the maximum value is removed to find the next one.
+		ptr1-=count;// the pointer is returned to the 0 value of the array
+		test11++;
+			}
+		test11-=count;// the pointer is returned to the 0 value of the array
+			
+	/*The values of the ordered array are copied to the original array*/ 
+	for(i=0; i<count;i++){
+	*ptr=*test11;
+	test11++;
+	ptr++;	
+	}
+	
+	
+	
 }
 
