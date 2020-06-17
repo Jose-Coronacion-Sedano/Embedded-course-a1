@@ -27,7 +27,7 @@
  *  @param <unsigned char * ptr> <The pointer to a data set>
  *  @param <unsigned int count> <The number of items of the array>
  */ 
-void print_statistics(unsigned char* ptr, unsigned int count);
+void print_statistics(unsigned char* ptr, unsigned char count);
 
 
 /** 
@@ -40,7 +40,7 @@ void print_statistics(unsigned char* ptr, unsigned int count);
  *  @param <unsigned char * ptr> <The pointer to a data set>
  *  @param <unsigned int count> <The number of items of the array>
  */ 
-void print_array(unsigned char * ptr, unsigned int count);
+void print_array(unsigned char * ptr, unsigned char count);
 
 
 /** 
@@ -59,7 +59,7 @@ void print_array(unsigned char * ptr, unsigned int count);
  *  @param <unsigned int count> <The number of items of the array>
  *  @return <The median value>
  */ 
-unsigned char find_median(unsigned char * ptr, unsigned int count);
+unsigned char find_median(unsigned char * ptr, unsigned char count);
 
 
 /** 
@@ -75,7 +75,7 @@ unsigned char find_median(unsigned char * ptr, unsigned int count);
  *  @param <unsigned int count> <The number of items of the array>
  *  @return <The mean value>
  */ 
-unsigned char find_mean(unsigned char * ptr, unsigned int count);
+unsigned char find_mean(unsigned char * ptr, unsigned char count);
 
 
 /** 
@@ -90,7 +90,7 @@ unsigned char find_mean(unsigned char * ptr, unsigned int count);
  *  @param <unsigned int count> <The number of items of the array>
  *  @return <The maximum value>
  */ 
-unsigned char find_maximum(unsigned char * ptr, unsigned int count);
+unsigned char find_maximum(unsigned char * ptr, unsigned char count);
 
 /** 
  *  @funtion <find_maximun>
@@ -104,7 +104,7 @@ unsigned char find_maximum(unsigned char * ptr, unsigned int count);
  *  @param <unsigned int count> <The number of items of the array>
  *  @return <The minimum value>
  */ 
-unsigned char find_minimum(unsigned char * ptr, unsigned int count);
+unsigned char find_minimum(unsigned char * ptr, unsigned char count);
 
 /** 
  *  @funtion <sort_array>
@@ -120,7 +120,7 @@ unsigned char find_minimum(unsigned char * ptr, unsigned int count);
  *  @param <unsigned char * ptr> <The pointer to a data set>
  *  @param <unsigned int count> <The number of items of the array>
  */ 
-void sort_array(unsigned char * ptr, unsigned int count); 
+void sort_array(unsigned char * ptr, unsigned char count); 
 
 
 #endif /* __STATS_H__ */

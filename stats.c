@@ -25,13 +25,13 @@
 
 /* Size of the Data Set */
 #define SIZE (40)
-void print_statistics(unsigned char* ptr, unsigned int count);
-void print_array(unsigned char * ptr, unsigned int count);
-unsigned char find_median(unsigned char * ptr, unsigned int count);
-unsigned char find_mean(unsigned char * ptr, unsigned int count);
-unsigned char find_maximum(unsigned char * ptr, unsigned int count);
-unsigned char find_minimum(unsigned char * ptr, unsigned int count);
-void sort_array(unsigned char * ptr, unsigned int count); 
+void print_statistics(unsigned char* ptr, unsigned char count);
+void print_array(unsigned char * ptr, unsigned char count);
+unsigned char find_median(unsigned char * ptr, unsigned char count);
+unsigned char find_mean(unsigned char * ptr, unsigned char count);
+unsigned char find_maximum(unsigned char * ptr, unsigned char count);
+unsigned char find_minimum(unsigned char * ptr, unsigned char count);
+void sort_array(unsigned char * ptr, unsigned char count); 
 
 void main() {
   
@@ -52,7 +52,7 @@ void main() {
   
 }
 
-void print_statistics(unsigned char* ptr, unsigned int count){
+void print_statistics(unsigned char* ptr, unsigned char count){
         unsigned char a;
 	unsigned char b;
 	unsigned char c;
@@ -64,8 +64,8 @@ void print_statistics(unsigned char* ptr, unsigned int count){
 	printf("\nThe statics are: \nMean: %u \nMedian: %u \nMaximun: %u\nMinimum: %u\n",c,d,a,b);
 			
 }
-void print_array(unsigned char * ptr, unsigned int count){
-       unsigned int i;
+void print_array(unsigned char * ptr, unsigned char count){
+       unsigned char i;
        printf("\n{");	
        for(i=0;i<count;i++){
 		if(i<(count-1)){			
@@ -76,7 +76,7 @@ void print_array(unsigned char * ptr, unsigned int count){
 		printf("}\n");
 
 }
-unsigned char find_median(unsigned char * ptr, unsigned int count) {
+unsigned char find_median(unsigned char * ptr, unsigned char count) {
 	unsigned char median;
 	unsigned char maxtemp;
 	unsigned char i;
@@ -127,7 +127,7 @@ unsigned char find_median(unsigned char * ptr, unsigned int count) {
 	return median;
 
 }
-unsigned char find_mean(unsigned char * ptr, unsigned int count){
+unsigned char find_mean(unsigned char * ptr, unsigned char count){
 	unsigned short summation=0;
 	unsigned char i;
 		if (ptr==NULL){
@@ -143,7 +143,7 @@ unsigned char find_mean(unsigned char * ptr, unsigned int count){
 		}
 		return ((unsigned char)(summation/count));
 }
-unsigned char find_maximum(unsigned char * ptr, unsigned int count){
+unsigned char find_maximum(unsigned char * ptr, unsigned char count){
 	unsigned char max;
 	unsigned char i;
 		if (ptr==NULL){
@@ -162,7 +162,7 @@ unsigned char find_maximum(unsigned char * ptr, unsigned int count){
 		return max;
 
 }
-unsigned char find_minimum(unsigned char * ptr, unsigned int count){
+unsigned char find_minimum(unsigned char * ptr, unsigned char count){
 	unsigned char min;
 	unsigned char i;
 		if (ptr==NULL){
@@ -180,7 +180,7 @@ unsigned char find_minimum(unsigned char * ptr, unsigned int count){
 		}
 		return min;
 }
-void sort_array(unsigned char * ptr, unsigned int count){
+void sort_array(unsigned char * ptr, unsigned char count){
 	unsigned char maxtemp;
 	unsigned char i;
 	unsigned char j;
