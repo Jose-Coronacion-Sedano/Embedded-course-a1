@@ -1,40 +1,124 @@
 /******************************************************************************
- * Copyright (C) 2017 by Alex Fosdick - University of Colorado
- *
- * Redistribution, modification or use of this software in source or binary
- * forms is permitted as long as the files maintain this copyright. Users are 
- * permitted to modify this and use it to learn about the field of embedded
- * software. Alex Fosdick and the University of Colorado are not liable for any
- * misuse of this material. 
- *
+ *Copyright (C) 2020 JOSE CORONACION - Universidad Nacional de Ingenieria
+ *JOSE CORONACION  and the Univerdidad Nacional de Ingenieria are not liable for
+ *any misuse of this material. 
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file <stats.h> 
+ * @brief <this is a document by order of the course introduction to embedded systems,  
+ * in this file will be placed a description of the functions that will be used in stats.c >
  *
- * <Add Extended Description Here>
- *
- * @author <Add FirsName LastName>
- * @date <Add date >
- *
+ * 
+ * @author <Jose Luis Coronacion Sedano>
+ * @date <17/06/2020 >
  */
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
+/** 
+ *  @funtion <print_statistics>
+ *  @brief <prints the statistics of an array including minimum, maximum, mean, and median>
+ *  
+ *  <This funtion is powered by "find_median","find_mean", "find_maximum" and "find_minimum"
+ *  funtions, first executes the functions "find_median","find_mean", "find_maximum" and
+ *  "find_minimum", stores the statistics of an array values in temporal variables and finally    
+ *  prints them out on the screen using the "printf" function.>
+ *
+ *  @param <unsigned char * ptr> <The pointer to a data set>
+ *  @param <unsigned int count> <The number of items of the array>
+ */ 
+void print_statistics(unsigned char* ptr, unsigned int count);
 
-/**
- * @brief <Add Brief Description of Function Here>
+
+/** 
+ *  @funtion <print_array>
+ *  @brief  <Given an array of data and a length, prints the array to the screen>
+ *  
+ *  This funtion uses the values of the given array and prints them out on the screen using
+ *  the "printf" function.
  *
- * <Add Extended Description Here>
+ *  @param <unsigned char * ptr> <The pointer to a data set>
+ *  @param <unsigned int count> <The number of items of the array>
+ */ 
+void print_array(unsigned char * ptr, unsigned int count);
+
+
+/** 
+ *  @funtion <find_median>
+ *  @brief  <Given an array of data and a length, returns the median value>
+ *  
+ *  <This function uses pointers to reference the internal values of the array, then it creates a 
+ *  copy of the array so that it can be manipulated without changing the values of the original
+ *  array, finally by means of a loop it stores the highest value of the array, stores it in
+ *  another array, and finally it deletes the value of the original array to look for the next 
+ *  highest value. Once we obtain the ordered data, we evaluate whether the amount of data is 
+ *  odd or even and determine the center value or the average of the center values.>
+.*
  *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
+ *  @param <unsigned char * ptr> <The pointer to a data set>
+ *  @param <unsigned int count> <The number of items of the array>
+ *  @return <The median value>
+ */ 
+unsigned char find_median(unsigned char * ptr, unsigned int count);
+
+
+/** 
+ *  @funtion <find_mean>
+ *  @brief   <Given an array of data and a length, returns the mean>
+ *  
+ *  <This function uses pointers to reference the internal values of the array, using the
+ *  internal values and the amount of data makes a sum through a loop, the sum's type variable is 
+ *  int because is greater than 256, once obtained the result of the sum is divided by the amount
+ *  of data obtaining the mean value.>
  *
- * @return <Add Return Informaiton here>
- */
+ *  @param <unsigned char * ptr> <The pointer to a data set>
+ *  @param <unsigned int count> <The number of items of the array>
+ *  @return <The mean value>
+ */ 
+unsigned char find_mean(unsigned char * ptr, unsigned int count);
+
+
+/** 
+ *  @funtion <find_maximun>
+ *  @brief   <Given an array of data and a length, returns the maximum value>
+ *  
+ *  <This function uses pointers to reference the internal values of the array, using the
+ *  internal values and the amount of data,through a loop compares and obtains the maximum value.>
+ *
+ *  @param <unsigned char * ptr> <The pointer to a data set>
+ *  @param <unsigned int count> <The number of items of the array>
+ *  @return <The maximum value>
+ */ 
+unsigned char find_maximum(unsigned char * ptr, unsigned int count);
+
+/** 
+ *  @funtion <find_maximun>
+ *  @brief   <Given an array of data and a length, returns the minimum>
+ *  
+ *  <This function uses pointers to reference the internal values of the array, using the
+ *  internal values and the amount of data,through a loop compares and obtains the minimun value.>
+ *
+ *  @param <unsigned char * ptr> <The pointer to a data set>
+ *  @param <unsigned int count> <The number of items of the array>
+ *  @return <The minimum value>
+ */ 
+unsigned char find_minimum(unsigned char * ptr, unsigned int count);
+
+/** 
+ *  @funtion <sort_array>
+ *  @brief   <Given an array of data and a length, sorts the array from largest to smallest.>
+ *  
+ *  <This function uses pointers to reference the internal values of the array, Then it creates
+ *  a copy of the array so that it can be manipulated without changing the values of the 
+ *  original array, finally by means of a loop it stores the highest value of the array, 
+ *  stores it in another array, and finally it deletes the value of the original array to
+ *  look for the next highest value. Once we obtain the ordered data copy these values to 
+ *  the original array.>
+ *
+ *  @param <unsigned char * ptr> <The pointer to a data set>
+ *         <unsigned int count> <The number of items of the array>
+ */ 
+void sort_array(unsigned char * ptr, unsigned int count); 
 
 
 #endif /* __STATS_H__ */
